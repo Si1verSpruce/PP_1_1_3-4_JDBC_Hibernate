@@ -4,18 +4,17 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class UserDaoJDBCImpl implements UserDao {
-    private static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS users("
-                                                   + "id INT NOT NULL AUTO_INCREMENT, " + "name VARCHAR(64), "
-                                                   + "lastName VARCHAR(64), " + "age TINYINT, " + "PRIMARY KEY (id))";
-    private static final String DROP_TABLE_SQL = "DROP TABLE IF EXISTS users";
-    private static final String INSERT_USER_SQL = "INSERT INTO users(name, lastName, age) VALUES (?, ?, ?)";
-    private static final String REMOVE_USER_SQL = "DELETE FROM users WHERE id = ?";
-    private static final String GET_ALL_USER_SQL = "SELECT * FROM users";
-    private static final String CLEAN_TABLE_SQL = "DELETE FROM users";
+    public static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS user("
+            + "id INT NOT NULL AUTO_INCREMENT, " + "name VARCHAR(64), "
+            + "last_name VARCHAR(64), " + "age TINYINT, " + "PRIMARY KEY (id))";
+    public static final String DROP_TABLE_SQL = "DROP TABLE IF EXISTS user";
+    private static final String INSERT_USER_SQL = "INSERT INTO user(name, last_name, age) VALUES (?, ?, ?)";
+    private static final String REMOVE_USER_SQL = "DELETE FROM user WHERE id = ?";
+    private static final String GET_ALL_USER_SQL = "SELECT * FROM user";
+    private static final String CLEAN_TABLE_SQL = "DELETE FROM user";
 
     public UserDaoJDBCImpl() {
 
